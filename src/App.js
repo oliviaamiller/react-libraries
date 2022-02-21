@@ -1,8 +1,10 @@
 import data from './Data';
 import MaterialTable from 'material-table';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
   return (
     <div className="App">
       <MaterialTable
@@ -11,12 +13,12 @@ function App() {
         }}
         title='people'
         columns={[
-          { title: 'first name' },
-          { title: 'last name' },
-          { title: 'gender' },
-          { title: 'age' },
-          { title: 'pet' },
-          { title: 'favorite food' },
+          { title: 'first name', field: 'name' },
+          { title: 'last name', field: 'surname' },
+          { title: 'gender', field: 'gender' },
+          { title: 'age', field: 'age' },
+          { title: 'pet', field: 'pet' },
+          { title: 'favorite food', field: 'food' },
         ]}
         data={data}/>
     </div>
