@@ -1,6 +1,6 @@
-import data from './Data';
+import data from './data';
 import MaterialTable from 'material-table';
-import { useState } from 'react';
+// import { makeColumns } from './data-utils';
 import './App.css';
 
 function App() {
@@ -9,18 +9,25 @@ function App() {
     <div className="App">
       <MaterialTable
         options={{
-          search: false
+          search: false,
+          rowStyle: {
+            backgroundColor: '#F5FFFE'
+          },
+          headerStyle: {
+            backgroundColor: '#70A5C4'
+          }
         }}
         title='people'
         columns={[
-          { title: 'first name', field: 'name' },
-          { title: 'last name', field: 'surname' },
+          { title: 'first name', field: 'first_name' },
+          { title: 'last name', field: 'last_name' },
           { title: 'gender', field: 'gender' },
           { title: 'age', field: 'age' },
           { title: 'pet', field: 'pet' },
-          { title: 'favorite food', field: 'food' },
+          { title: 'favorite food', field: 'favorite_food' },
         ]}
         data={data}/>
+        
     </div>
   );
 }
