@@ -1,14 +1,9 @@
-export function makeColumns(arr) {
-  const data = Object.data(arr[0]);
-
-  const columns = data.map(item => {
+export function ageAndPet(people) {
+  const array = people.map(person => {
     return {
-      title: item.split('_')
-        .map(word => word.slice(1))
-        .join(''),
-      field: item
+      pet: person.pet,
+      age: person.age
     };
   });
-
-  return columns;
+  return array;
 }

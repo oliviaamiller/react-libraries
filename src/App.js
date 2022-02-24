@@ -2,6 +2,10 @@ import data from './data';
 import MaterialTable from 'material-table';
 // import { makeColumns } from './data-utils';
 import './App.css';
+import { VictoryBar, VictoryChart } from 'victory';
+import { ageAndPet } from './data-utils';
+
+
 
 function App() {
 
@@ -27,6 +31,14 @@ function App() {
           { title: 'favorite food', field: 'favorite_food' },
         ]}
         data={data}/>
+
+      <VictoryChart>
+        <VictoryBar 
+          data={ageAndPet(data)} 
+          x='pet'
+          y='age'
+        />
+      </VictoryChart>
         
     </div>
   );
