@@ -1,7 +1,7 @@
-export function ageAndPet(people) {
+export function ageAndCountry(people) {
   const array = people.map(person => {
     return {
-      pet: person.pet,
+      location: person.location,
       age: person.age
     };
   });

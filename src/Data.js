@@ -1,4 +1,4 @@
-[{
+export default [{
   'first_name': 'Murdock',
   'last_name': 'Jeffrey',
   'gender': 'Female',
@@ -698,4 +698,4 @@
   'location': 'Brazil',
   'car': 'Honda',
   'age': 42
-}]
+}];

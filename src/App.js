@@ -1,9 +1,7 @@
 import data from './data';
-import MaterialTable from 'material-table';
-// import { makeColumns } from './data-utils';
 import './App.css';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
-import { ageAndPet } from './data-utils';
+import { ageAndCountry } from './data-utils';
 
 
 
@@ -11,41 +9,21 @@ function App() {
 
   return (
     <div className="App">
-      <MaterialTable
-        options={{
-          search: false,
-          rowStyle: {
-            backgroundColor: '#F5FFFE'
-          },
-          headerStyle: {
-            backgroundColor: '#70A5C4'
-          }
-        }}
-        title='people'
-        columns={[
-          { title: 'first name', field: 'first_name' },
-          { title: 'last name', field: 'last_name' },
-          { title: 'gender', field: 'gender' },
-          { title: 'age', field: 'age' },
-          { title: 'pet', field: 'pet' },
-          { title: 'favorite food', field: 'favorite_food' },
-        ]}
-        data={data}/>
-
+    
       <VictoryChart
         domainPadding={20}>
         <VictoryAxis
           crossAxis
-          style={{ tickLabels: { fontSize: 3 } }}
-          tickLabelComponent={<VictoryLabel angle={-90}/>}/>
+          style={{ tickLabels: { fontSize: 5 } }}
+          tickLabelComponent={<VictoryLabel angle={90}/>}/>
 
         <VictoryAxis
           dependentAxis
           tickFormat={(x) => (`${x}yrs`)}
         />
         <VictoryBar 
-          data={ageAndPet(data)} 
-          x='pet'
+          data={ageAndCountry(data)} 
+          x='location'
           y='age'
         />
       </VictoryChart>
