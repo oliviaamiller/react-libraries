@@ -1,6 +1,11 @@
 import data from './data';
 import './App.css';
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel, VictoryPortal } from 'victory';
+import { VictoryBar, 
+  VictoryChart, 
+  VictoryAxis, 
+  VictoryLabel, 
+  VictoryPortal, 
+  VictoryPie } from 'victory';
 import { ageAndCountry } from './data-utils';
 
 
@@ -35,6 +40,10 @@ function App() {
           y='age'
         />
       </VictoryChart>
+
+      <VictoryPie>
+
+      </VictoryPie>
         
     </div>
   );

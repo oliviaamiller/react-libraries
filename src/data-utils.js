@@ -7,3 +7,13 @@ export function ageAndCountry(people) {
   });
   return array;
 }
+
+export function carsInFrance(people) {
+  const franceArray = people.filter(person => person.location === 'France');
+  const carsInFranceArray = franceArray.map(france => {
+    return {
+      car: france.car
+    };
+  });
+  return carsInFranceArray;
+}
