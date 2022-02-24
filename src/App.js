@@ -2,7 +2,7 @@ import data from './data';
 import MaterialTable from 'material-table';
 // import { makeColumns } from './data-utils';
 import './App.css';
-import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import { ageAndPet } from './data-utils';
 
 
@@ -34,7 +34,10 @@ function App() {
 
       <VictoryChart
         domainPadding={20}>
-        <VictoryAxis/>
+        <VictoryAxis
+          crossAxis
+          style={{ tickLabels: { fontSize: 3 } }}
+          tickLabelComponent={<VictoryLabel angle={-90}/>}/>
 
         <VictoryAxis
           dependentAxis
