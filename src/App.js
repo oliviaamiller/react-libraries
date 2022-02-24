@@ -6,9 +6,9 @@ import { VictoryBar,
   VictoryLabel, 
   VictoryPortal, 
   VictoryPie } from 'victory';
-import { ageAndCountry } from './data-utils';
+import { ageAndCountry, carsInFrance } from './data-utils';
 
-
+console.log(carsInFrance(data));
 
 function App() {
 
@@ -42,7 +42,7 @@ function App() {
       </VictoryChart>
 
       <VictoryPie>
-
+        
       </VictoryPie>
         
     </div>

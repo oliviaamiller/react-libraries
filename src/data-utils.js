@@ -9,11 +9,16 @@ export function ageAndCountry(people) {
 }
 
 export function carsInFrance(people) {
-  const franceArray = people.filter(person => person.location === 'France');
-  const carsInFranceArray = franceArray.map(france => {
-    return {
-      car: france.car
-    };
-  });
-  return carsInFranceArray;
+  const france = people.filter(person => person.location === 'France');
+
+  const carsHashMap = {};
+
+  for (let french of france) {
+    if (carsHashMap[french.car]) {
+      carsHashMap[french.car]++;
+    } else {
+      carsHashMap[french.car] = 1;
+    }
+  }
+  return carsHashMap;
 }
