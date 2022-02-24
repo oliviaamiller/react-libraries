@@ -41,8 +41,11 @@ function App() {
         />
       </VictoryChart>
 
+      
+     
+      <h1>Cars in France</h1>
       <VictoryPie
-        padding={120}
+        padding={{ bottom: 120, left: 120, right: 120 }}
         colorScale={['blue', 'pink', 'gold', 'black', 'red', 'green']}
         data={carsInFrance(data)}
       />
