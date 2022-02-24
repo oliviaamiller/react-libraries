@@ -11,14 +11,20 @@ export function ageAndCountry(people) {
 export function carsInFrance(people) {
   const france = people.filter(person => person.location === 'France');
 
-  const carsHashMap = {};
+  const carHashMap = france.reduce((acc, french) => {
 
-  for (let french of france) {
-    if (carsHashMap[french.car]) {
-      carsHashMap[french.car]++;
+    if (acc[french.car]) {
+      acc[french.car]++;
     } else {
-      carsHashMap[french.car] = 1;
+      acc[french.car] = 1;
     }
-  }
-  return carsHashMap;
+    return acc;
+  }, {});
+
+  const carsArray = Object.entries(carHashMap);
+
+  const newCarsArray = carsArray.map(car => (
+    { x: car[0], y: car[1] }
+  ));
+  return newCarsArray;
 }

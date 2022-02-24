@@ -41,9 +41,9 @@ function App() {
         />
       </VictoryChart>
 
-      <VictoryPie>
-        
-      </VictoryPie>
+      <VictoryPie
+        data={carsInFrance(data)}
+      />
         
     </div>
   );
