@@ -7,6 +7,7 @@ import { VictoryBar,
   VictoryPortal, 
   VictoryPie,
   VictoryLine } from 'victory';
+import MaterialTable from 'material-table';
 import { carsInCountry, faveColor, agesOverTime } from './data-utils';
 import { colorBars } from './functions';
 
@@ -84,11 +85,30 @@ function App() {
         </VictoryPortal>
       
       </VictoryChart>
-    
-      
-      
-        
+
+      <MaterialTable
+        options={{
+          search: false,
+          rowStyle: {
+            backgroundColor: '#F5FFFE'
+          },
+          headerStyle: {
+            backgroundColor: '#70A5C4'
+          }
+        }}
+        title='people'
+        columns={[
+          { title: 'first name', field: 'first_name' },
+          { title: 'last name', field: 'last_name' },
+          { title: 'gender', field: 'gender' },
+          { title: 'age', field: 'age' },
+          { title: 'car', field: 'car' },
+          { title: 'location', field: 'location' },
+        ]}
+        data={data}/>
+
     </div>
+  
   );
 }
 
