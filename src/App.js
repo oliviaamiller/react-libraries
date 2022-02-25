@@ -10,7 +10,6 @@ import { VictoryBar,
 import { carsInCountry, faveColor, agesOverTime } from './data-utils';
 import { colorBars } from './functions';
 
-console.log(colorBars({ x: 'Green' }));
 
 function App() {
 
@@ -32,7 +31,6 @@ function App() {
 
         <VictoryAxis
           dependentAxis
-          tickFormat={(x) => (`${x}`)}
         />
         <VictoryBar 
           alignment='start'
@@ -60,9 +58,30 @@ function App() {
       </svg>
 
 
-      <VictoryChart>
-        <VictoryLine 
-          data={agesOverTime(data)}/>
+      <VictoryChart height={400} width={800}>
+
+        <VictoryLabel text="Average Name Length by Age" x={400} y={20} textAnchor="middle"/>
+        <VictoryAxis
+          crossAxis
+          style={{ tickLabels: { fontSize: 8 } }}
+          tickLabelComponent={<VictoryPortal>
+            <VictoryLabel 
+              textAnchor='end' />
+          </VictoryPortal>} />
+
+        <VictoryAxis
+          dependentAxis
+          style={{ tickLabels: { fontSize: 10 } }}
+        />
+        <VictoryPortal>
+          <VictoryLine
+            interpolation='natural'
+            style={{
+              data: { stroke: 'gold',
+                strokeWidth: 2 }, 
+            }}
+            data={agesOverTime(data)}/>
+        </VictoryPortal>
       
       </VictoryChart>
     
