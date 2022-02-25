@@ -68,3 +68,22 @@ export function carsInCountry(people) {
   return newCarsArray;
 }
 
+
+export function agesOverTime(people) {
+  const ageHashMap = people.reduce((acc, curr) => {
+  
+    if (acc[curr.age]) {
+      acc[curr.age] = (curr.first_name.length + acc[curr.age]) / 2;
+    } else {
+      acc[curr.age] = curr.first_name.length;
+    }
+    return acc;
+  }, {});
+
+  const entriesArray = Object.entries(ageHashMap);
+
+  const newEntriesArray = entriesArray.map(entry => {
+    return { x: entry[0], y: entry[1] };
+  });
+  return newEntriesArray;
+}

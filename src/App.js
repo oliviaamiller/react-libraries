@@ -7,9 +7,10 @@ import { VictoryBar,
   VictoryPortal, 
   VictoryPie,
   VictoryLine } from 'victory';
-import { carsInCountry, faveColor } from './data-utils';
+import { carsInCountry, faveColor, agesOverTime } from './data-utils';
+import { colorBars } from './functions';
 
-console.log(faveColor(data));
+console.log(colorBars({ x: 'Green' }));
 
 function App() {
 
@@ -19,10 +20,10 @@ function App() {
       <VictoryChart height={400} width={800}
         domainPadding={20}
       >
-        <VictoryLabel text="How Many People's Favorite Colors" x={400} y={30} textAnchor="middle"/>
+        <VictoryLabel text="Color Popularity" x={400} y={30} textAnchor="middle"/>
         <VictoryAxis
           crossAxis
-          style={{ tickLabels: { fontSize: 10 } }}
+          style={{ tickLabels: { fontSize: 13 } }}
           tickLabelComponent={<VictoryPortal>
             <VictoryLabel 
               angle={-90}
@@ -54,20 +55,15 @@ function App() {
         />
         <VictoryLabel 
           style={{ fontSize: 18 }}
-          x={150} y={50}
+          x={135} y={50}
           text="Cars in Indonesia"/>
       </svg>
 
 
       <VictoryChart>
         <VictoryLine 
-          data={[
-            { x: 1, y: 2 },
-            { x: 2, y: 3 },
-            { x: 3, y: 5 },
-            { x: 4, y: 4 },
-            { x: 5, y: 7 }
-          ]}/>
+          data={agesOverTime(data)}/>
+      
       </VictoryChart>
     
       
