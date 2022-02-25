@@ -6,11 +6,10 @@ import { VictoryBar,
   VictoryLabel, 
   VictoryPortal, 
   VictoryPie,
-  VictoryLine,
-  VictoryStack } from 'victory';
-import { ageAndCountry, carsInFrance, mNamesLocation } from './data-utils';
+  VictoryLine } from 'victory';
+import { carsInCountry, faveColor } from './data-utils';
 
-console.log(mNamesLocation(data));
+console.log(faveColor(data));
 
 function App() {
 
@@ -20,7 +19,7 @@ function App() {
       <VictoryChart height={400} width={800}
         domainPadding={20}
       >
-        <VictoryLabel text='Age in Each Country' x={400} y={30} textAnchor="middle"/>
+        <VictoryLabel text="How Many People's Favorite Colors" x={400} y={30} textAnchor="middle"/>
         <VictoryAxis
           crossAxis
           style={{ tickLabels: { fontSize: 10 } }}
@@ -32,16 +31,17 @@ function App() {
 
         <VictoryAxis
           dependentAxis
-          tickFormat={(x) => (`${x}yrs`)}
+          tickFormat={(x) => (`${x}`)}
         />
         <VictoryBar 
           alignment='start'
-          style={{ data: { fill: 'gold', width: 10 } }}
-          data={ageAndCountry(data)} 
-          x='location'
-          y='age'
+          style={{ data: { fill: ({ datum }) => datum.x === 'Green' ? 'green' : datum.x === 'Pink' ? 'pink' : datum.x === 'Yellow' ? 'yellow' : datum.x === 'Puce' ? '#CC8899' : datum.x === 'Turquoise' ? 'turquoise' : datum.x === 'Violet' ? 'violet' : datum.x === 'Goldenrod' ? 'goldenrod' : datum.x === 'Blue' ? 'blue' : datum.x === 'Purple' ? 'purple' : datum.x === 'Khaki' ? 'khaki' : datum.x === 'Fuscia' ? '#D9027D' : datum.x === 'Aquamarine' ? 'aquamarine' : datum.x === 'Maroon' ? 'maroon' : datum.x === 'Mauv' ? '#BB85AB' : datum.x === 'Indigo' ? 'indigo' : datum.x === 'Orange' ? 'orange' : datum.x === 'Teal' ? 'teal' : datum.x === 'Crimson' ? 'crimson' : datum.x === 'Red' ? 'red' : '', width: 10 } }}
+          data={faveColor(data)}
+      
         />
       </VictoryChart>
+
+     
 
       
       <svg viewBox="0 0 400 400">
@@ -50,28 +50,28 @@ function App() {
           width={400} height={400}
           padding={{ top: 120, bottom: 120, left: 120, right: 120 }}
           colorScale={['blue', 'pink', 'gold', 'black', 'red', 'green']}
-          data={carsInFrance(data)}
+          data={carsInCountry(data)}
         />
         <VictoryLabel 
           style={{ fontSize: 18 }}
           x={150} y={50}
           text="Cars in Indonesia"/>
       </svg>
-  
-    
+
 
       <VictoryChart>
-        <VictoryStack>
-        colorScale={['tomato', 'orange', 'gold']}
-        
-          <VictoryBar />
-        
-        
-        
-      
-        </VictoryStack>
-
+        <VictoryLine 
+          data={[
+            { x: 1, y: 2 },
+            { x: 2, y: 3 },
+            { x: 3, y: 5 },
+            { x: 4, y: 4 },
+            { x: 5, y: 7 }
+          ]}/>
       </VictoryChart>
+    
+      
+      
         
     </div>
   );

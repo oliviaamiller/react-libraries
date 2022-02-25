@@ -8,22 +8,54 @@ export function ageAndCountry(people) {
   return array;
 }
 
-export function mNamesLocation(people) {
-  const mNames = people.filter(person => person.first_name.startsWith('N'));
+export function faveColor(people) {
+  const colorHashMap = people.reduce((acc, curr) => {
 
-  return mNames;
+    if (acc[curr.color]) {
+      acc[curr.color]++;
+    } else {
+      acc[curr.color] = 1;
+    }
+    return acc;
+  }, {});
 
+  const colorsArray = Object.entries(colorHashMap);
+
+  const newColorsArray = colorsArray.map(curr => (
+    { x: curr[0], y: curr[1] }
+  ));
+  return newColorsArray;
+}
+
+export function favoriteColorByCountry(people) {
+
+  
+  const colorBreakdown = people.reduce((acc, curr) => {
+
+    if (acc[curr.location]) {
+      if (acc[curr.location][curr.color]) 
+      {acc[curr.location][curr.color]++;
+      } else {
+        acc[curr.location][curr.color] = 1;
+      }
+    } else {
+      acc[curr.location] = {};
+      acc[curr.location][curr.color] = 1;
+    }
+    return acc;
+  }, {});
+  return colorBreakdown;
 }
  
-export function carsInFrance(people) {
-  const france = people.filter(person => person.location === 'Indonesia');
+export function carsInCountry(people) {
+  const country = people.filter(person => person.location === 'Indonesia');
 
-  const carHashMap = france.reduce((acc, french) => {
+  const carHashMap = country.reduce((acc, curr) => {
 
-    if (acc[french.car]) {
-      acc[french.car]++;
+    if (acc[curr.car]) {
+      acc[curr.car]++;
     } else {
-      acc[french.car] = 1;
+      acc[curr.car] = 1;
     }
     return acc;
   }, {});
@@ -35,3 +67,4 @@ export function carsInFrance(people) {
   ));
   return newCarsArray;
 }
+
