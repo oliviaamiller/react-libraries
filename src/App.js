@@ -16,6 +16,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>My Charts</h1>
     
       <VictoryChart height={400} width={800}
         domainPadding={20}
