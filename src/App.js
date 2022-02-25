@@ -5,10 +5,12 @@ import { VictoryBar,
   VictoryAxis, 
   VictoryLabel, 
   VictoryPortal, 
-  VictoryPie } from 'victory';
-import { ageAndCountry, carsInFrance } from './data-utils';
+  VictoryPie,
+  VictoryLine,
+  VictoryStack } from 'victory';
+import { ageAndCountry, carsInFrance, mNamesLocation } from './data-utils';
 
-console.log(carsInFrance(data));
+console.log(mNamesLocation(data));
 
 function App() {
 
@@ -42,13 +44,34 @@ function App() {
       </VictoryChart>
 
       
-     
-      <h1>Cars in France</h1>
-      <VictoryPie
-        padding={{ bottom: 120, left: 120, right: 120 }}
-        colorScale={['blue', 'pink', 'gold', 'black', 'red', 'green']}
-        data={carsInFrance(data)}
-      />
+      <svg viewBox="0 0 400 400">
+        <VictoryPie
+          standalone={false}
+          width={400} height={400}
+          padding={{ top: 120, bottom: 120, left: 120, right: 120 }}
+          colorScale={['blue', 'pink', 'gold', 'black', 'red', 'green']}
+          data={carsInFrance(data)}
+        />
+        <VictoryLabel 
+          style={{ fontSize: 18 }}
+          x={150} y={50}
+          text="Cars in Indonesia"/>
+      </svg>
+  
+    
+
+      <VictoryChart>
+        <VictoryStack>
+        colorScale={['tomato', 'orange', 'gold']}
+        
+          <VictoryBar />
+        
+        
+        
+      
+        </VictoryStack>
+
+      </VictoryChart>
         
     </div>
   );

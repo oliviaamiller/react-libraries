@@ -8,8 +8,15 @@ export function ageAndCountry(people) {
   return array;
 }
 
+export function mNamesLocation(people) {
+  const mNames = people.filter(person => person.first_name.startsWith('N'));
+
+  return mNames;
+
+}
+ 
 export function carsInFrance(people) {
-  const france = people.filter(person => person.location === 'France');
+  const france = people.filter(person => person.location === 'Indonesia');
 
   const carHashMap = france.reduce((acc, french) => {
 
